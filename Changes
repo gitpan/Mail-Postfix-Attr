@@ -4,3 +4,8 @@ Revision history for Perl extension Mail::Postfix::Attr.
 	- original version; created by h2xs 1.21 with options
 		-X -n Mail::Postfix::Attr
 
+0.02  Wed Dec  3 00:45:07 EST 2003
+        - fixed problem with plain format and test
+
+
+

@@ -3,7 +3,7 @@ package Mail::Postfix::Attr;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my %codecs = (
 
@@ -48,7 +48,9 @@ sub send {
 
 #print "SEND READ [$attr_buf]\n" ;
 
-	return $self->decode( $attr_buf ) ;
+	my @result = $self->decode( $attr_buf );
+
+	return map { @$_ } @result;
 }
 
 sub encode {
@@ -101,7 +103,7 @@ sub encode_plain {
 
 	while( my( $attr, $val ) = splice( @_, 0, 2 ) ) {
 
-		$attr_text .= "$attr\n$val\n" ;
+		$attr_text .= "$attr=$val\n" ;
 	}
 
 	return "$attr_text\n" ;
@@ -266,6 +268,22 @@ You can also call each decoder directly as a class method:
   my @attrs = Mail::Postfix::Attr->decode_0( $attr_text ) ;
   my @attrs = Mail::Postfix::Attr->decode_64( $attr_text ) ;
   my @attrs = Mail::Postfix::Attr->decode_plain( $attr_text ) ;
+
+=head1 EXAMPLES
+
+  # talk to the verify(8) service available in Postfix v2.
+  # 
+  # perl -MMail::Postfix::Attr -le 'print for Mail::Postfix::Attr
+           ->new (codec=>0, path=>"/var/spool/postfix/private/verify")
+           ->send(request=>query=>address=>shift)'
+          postmaster@localhost
+
+  status
+  0
+  recipient_status
+  0
+  reason
+  aliased to root
 
 =head1 AUTHOR
 

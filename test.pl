@@ -39,7 +39,7 @@ foreach my $type ( qw( 0 64 plain ) ) {
 
 #print "RECV ", Dumper \@back_attrs ;
 
-	my $back_text = Dumper $attrs_back[0] ;
+	my $back_text = Dumper \@attrs_back ;
 
 #print "BACK $back_text\n" ;
 
