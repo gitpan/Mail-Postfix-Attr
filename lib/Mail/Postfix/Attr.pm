@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Mail::Postfix::Attr;
 {
-  $Mail::Postfix::Attr::VERSION = '0.04';
+  $Mail::Postfix::Attr::VERSION = '0.05';
 }
 # ABSTRACT: encode and decode Postfix attributes
 
@@ -184,7 +184,7 @@ Mail::Postfix::Attr - encode and decode Postfix attributes
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
