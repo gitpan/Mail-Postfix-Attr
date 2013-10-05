@@ -9,14 +9,19 @@ build_requires:
   IPC::Open3: 0
   Test::More: 0.96
 configure_requires:
+  Devel::AssertOS: 0
+  Devel::CheckOS: 1.63
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132620'
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132661'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Mail-Postfix-Attr
+no_index:
+  directory:
+    - inc
 requires:
   Carp: 0
   IO::Socket::INET: 0
@@ -28,7 +33,7 @@ resources:
   bugtracker: https://github.com/rjbs/Mail-Postfix-Attr/issues
   homepage: https://github.com/rjbs/Mail-Postfix-Attr
   repository: https://github.com/rjbs/Mail-Postfix-Attr.git
-version: 0.05
+version: 0.06
 x_Dist_Zilla:
   perl:
     version: 5.019004
@@ -48,11 +53,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       name: '@RJBS/RJBS-Outdated'
-      version: 0.006
+      version: 0.007
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       name: '@RJBS/CPAN-Outdated'
-      version: 0.006
+      version: 0.007
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@RJBS/@Filter/PruneCruft'
@@ -136,7 +141,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@RJBS/ReportVersions::Tiny'
-      version: 1.09
+      version: 1.10
     -
       class: Dist::Zilla::Plugin::Test::Compile
       config:
@@ -168,7 +173,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GithubMeta
       name: '@RJBS/GithubMeta'
-      version: 0.40
+      version: 0.42
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@RJBS/@Git/Check'
@@ -185,6 +190,10 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Git::Push
       name: '@RJBS/@Git/Push'
       version: 2.014
+    -
+      class: Dist::Zilla::Plugin::AssertOS
+      name: AssertOS
+      version: 0.06
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'

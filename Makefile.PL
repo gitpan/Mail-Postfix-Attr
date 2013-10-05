@@ -1,3 +1,4 @@
+use Devel::AssertOS qw[-MSWin32 -VMS];
 
 use strict;
 use warnings;
@@ -13,6 +14,8 @@ my %WriteMakefileArgs = (
   "AUTHOR" => "Uri Guttman <uri\@stemsystems.com>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
+    "Devel::AssertOS" => 0,
+    "Devel::CheckOS" => "1.63",
     "ExtUtils::MakeMaker" => "6.30"
   },
   "DISTNAME" => "Mail-Postfix-Attr",
@@ -34,7 +37,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => "0.96"
   },
-  "VERSION" => "0.05",
+  "VERSION" => "0.06",
   "test" => {
     "TESTS" => "t/*.t"
   }

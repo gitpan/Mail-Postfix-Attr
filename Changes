@@ -1,5 +1,8 @@
 Revision history for Perl extension Mail::Postfix::Attr.
 
+0.06      2013-10-04 21:06:16 America/New_York
+          update Makefile.PL to just give up on Win32 and VMS
+
 0.05      2013-09-28 21:35:00 America/New_York
           update repo metadata
 
